@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-mor-bg: #FBF8F5;
+  --color-mor-bg-secondary: #F7F2ED;
+  --color-mor-surface: #FFFDFB;
+
+  --color-mor-text: #241D19;
+  --color-mor-text-secondary: #6D5B50;
+  --color-mor-text-muted: #99877D;
+
+  --color-mor-coral: #EA7957;
+  --color-mor-coral-light: #F8E6DF;
+  --color-mor-coral-soft: #FCEEE8;
+
+  --color-mor-blue: #BFE2F1;
+  --color-mor-blue-soft: #E5F3F9;
+
+  --color-mor-sage: #BDD9B0;
+  --color-mor-sage-soft: #EAF1E5;
+  --color-mor-sage-dark: #2E5A36;
+
+  --color-mor-butter: #EEE6BF;
+
+  --color-mor-button-dark: #35271F;
+  --color-mor-button-dark-hover: #49352A;
+
+  --color-mor-border: #E7DAD1;
+
+  --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+@layer base {
+  :root {
+    --mor-bg: #FBF8F5;
+    --mor-bg-secondary: #F7F2ED;
+    --mor-surface: #FFFDFB;
+
+    --mor-text: #241D19;
+    --mor-text-secondary: #6D5B50;
+    --mor-text-muted: #99877D;
+
+    --mor-coral: #EA7957;
+    --mor-coral-light: #F8E6DF;
+    --mor-coral-soft: #FCEEE8;
+
+    --mor-blue: #BFE2F1;
+    --mor-blue-soft: #E5F3F9;
+
+    --mor-sage: #BDD9B0;
+    --mor-sage-soft: #EAF1E5;
+    --mor-sage-dark: #2E5A36;
+
+    --mor-butter: #EEE6BF;
+
+    --mor-button-dark: #35271F;
+    --mor-button-dark-hover: #49352A;
+
+    --mor-border: #E7DAD1;
+    --mor-border-soft: rgba(70, 45, 35, 0.08);
+
+    --mor-grid: rgba(110, 91, 79, 0.09);
+    --mor-shadow: 0 10px 35px rgba(65, 43, 32, 0.06);
+
+    /* Semantic Aliases mapped directly to Morpheus tokens */
+    --bg-page: var(--mor-bg);
+    --bg-surface: var(--mor-surface);
+    --bg-sidebar: var(--mor-surface);
+    --bg-canvas: var(--mor-bg);
+    --bg-card: var(--mor-surface);
+
+    --text-primary: var(--mor-text);
+    --text-secondary: var(--mor-text-secondary);
+    --text-muted: var(--mor-text-muted);
+
+    --accent-primary: var(--mor-coral);
+    --border-subtle: var(--mor-border);
+
+    /* Neutral mappings to prevent any blue/purple leakage */
+    --bg-primary: var(--mor-bg);
+    --bg-secondary: var(--mor-bg-secondary);
+    --border-color: var(--mor-border);
+    --accent-blue: var(--mor-coral);
+    --accent-indigo: var(--mor-button-dark);
+  }
+
+  .dark {
+    --mor-bg: #1F1916;
+    --mor-bg-secondary: #27201C;
+    --mor-surface: #2E2622;
+
+    --mor-text: #FBF8F5;
+    --mor-text-secondary: #D4C7BF;
+    --mor-text-muted: #99877D;
+
+    --mor-coral: #EA7957;
+    --mor-coral-light: rgba(234, 121, 87, 0.18);
+    --mor-coral-soft: rgba(234, 121, 87, 0.1);
+
+    --mor-blue: #BFE2F1;
+    --mor-blue-soft: rgba(191, 226, 241, 0.12);
+
+    --mor-sage: #BDD9B0;
+    --mor-sage-soft: rgba(189, 217, 176, 0.18);
+    --mor-sage-dark: #8EC47E;
+
+    --mor-butter: #EEE6BF;
+
+    --mor-button-dark: #FBF8F5;
+    --mor-button-dark-hover: #FFFFFF;
+
+    --mor-border: #443730;
+    --mor-border-soft: rgba(255, 255, 255, 0.08);
+
+    --mor-grid: rgba(231, 218, 209, 0.06);
+    --mor-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+
+    --bg-page: var(--mor-bg);
+    --bg-surface: var(--mor-surface);
+    --bg-sidebar: var(--mor-surface);
+    --bg-canvas: var(--mor-bg);
+    --bg-card: var(--mor-surface);
+
+    --text-primary: var(--mor-text);
+    --text-secondary: var(--mor-text-secondary);
+    --text-muted: var(--mor-text-muted);
+
+    --accent-primary: var(--mor-coral);
+    --border-subtle: var(--mor-border);
+
+    --bg-primary: var(--mor-bg);
+    --bg-secondary: var(--mor-bg-secondary);
+    --border-color: var(--mor-border);
+    --accent-blue: var(--mor-coral);
+    --accent-indigo: #FBF8F5;
+  }
+
+  body {
+    background-color: var(--mor-bg);
+    color: var(--mor-text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    letter-spacing: -0.03em;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mor-border);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C4B5A8;
+}
+
+/* ========================================================
+   GLOBAL GLASSMORPHISM DESIGN SYSTEM
+   ======================================================== */
+
+:root {
+  /* Warm Dark-Brown Glassmorphism Surface Variables */
+  --glass-bg-base: rgba(31, 23, 19, 0.72);
+  --glass-bg-surface: rgba(39, 26, 20, 0.65);
+  --glass-bg-card: rgba(43, 29, 22, 0.58);
+  --glass-bg-card-hover: rgba(54, 37, 28, 0.78);
+  --glass-bg-sidebar: rgba(28, 19, 14, 0.82);
+  --glass-bg-input: rgba(22, 14, 10, 0.72);
+  --glass-bg-modal: rgba(26, 17, 12, 0.88);
+  --glass-bg-dropdown: rgba(28, 18, 13, 0.92);
+  --glass-bg-bubble-ai: rgba(34, 22, 16, 0.75);
+  --glass-bg-bubble-user: rgba(51, 32, 23, 0.78);
+  --glass-bg-button: rgba(51, 34, 25, 0.68);
+  --glass-bg-button-hover: rgba(68, 46, 35, 0.88);
+
+  /* Glass Blur Intensities */
+  --glass-blur-sm: 8px;
+  --glass-blur-md: 14px;
+  --glass-blur-lg: 20px;
+  --glass-blur-xl: 28px;
+
+  /* Glass Borders */
+  --glass-border-subtle: rgba(231, 218, 209, 0.08);
+  --glass-border-medium: rgba(231, 218, 209, 0.14);
+  --glass-border-highlight: rgba(234, 121, 87, 0.35);
+
+  /* Glass Shadows & Inset Reflections */
+  --glass-shadow-sm: 0 4px 16px -2px rgba(10, 5, 3, 0.35), 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  --glass-shadow-md: 0 10px 30px -4px rgba(10, 5, 3, 0.45), 0 4px 8px -2px rgba(0, 0, 0, 0.3);
+  --glass-shadow-lg: 0 18px 45px -8px rgba(10, 5, 3, 0.55), 0 8px 16px -4px rgba(0, 0, 0, 0.4);
+  --glass-shadow-modal: 0 24px 60px -10px rgba(8, 4, 2, 0.75), 0 12px 24px -6px rgba(0, 0, 0, 0.5);
+
+  --glass-specular-top: inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  --glass-specular-coral: inset 0 1px 0 0 rgba(234, 121, 87, 0.25);
+}
+
+/* Glass Utility Classes */
+.glass-panel {
+  background: var(--glass-bg-surface);
+  backdrop-filter: blur(var(--glass-blur-lg));
+  -webkit-backdrop-filter: blur(var(--glass-blur-lg));
+  border: 1px solid var(--glass-border-subtle);
+  box-shadow: var(--glass-shadow-md), var(--glass-specular-top);
+}
+
+.glass-card {
+  background: var(--glass-bg-card);
+  backdrop-filter: blur(var(--glass-blur-md));
+  -webkit-backdrop-filter: blur(var(--glass-blur-md));
+  border: 1px solid var(--glass-border-subtle);
+  box-shadow: var(--glass-shadow-sm), var(--glass-specular-top);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-interactive {
+  background: var(--glass-bg-card);
+  backdrop-filter: blur(var(--glass-blur-md));
+  -webkit-backdrop-filter: blur(var(--glass-blur-md));
+  border: 1px solid var(--glass-border-subtle);
+  box-shadow: var(--glass-shadow-sm), var(--glass-specular-top);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-interactive:hover {
+  background: var(--glass-bg-card-hover);
+  border-color: var(--glass-border-highlight);
+  box-shadow: var(--glass-shadow-md), var(--glass-specular-coral);
+}
+
+.glass-sidebar {
+  background: var(--glass-bg-sidebar);
+  backdrop-filter: blur(var(--glass-blur-xl));
+  -webkit-backdrop-filter: blur(var(--glass-blur-xl));
+  border-right: 1px solid var(--glass-border-subtle);
+  box-shadow: var(--glass-shadow-lg);
+}
+
+.glass-modal {
+  background: var(--glass-bg-modal);
+  backdrop-filter: blur(var(--glass-blur-xl));
+  -webkit-backdrop-filter: blur(var(--glass-blur-xl));
+  border: 1px solid var(--glass-border-medium);
+  box-shadow: var(--glass-shadow-modal), var(--glass-specular-top);
+}
+
+.glass-dropdown {
+  background: var(--glass-bg-dropdown);
+  backdrop-filter: blur(var(--glass-blur-lg));
+  -webkit-backdrop-filter: blur(var(--glass-blur-lg));
+  border: 1px solid var(--glass-border-medium);
+  box-shadow: var(--glass-shadow-lg), var(--glass-specular-top);
+}
+
+.glass-input {
+  background: var(--glass-bg-input);
+  backdrop-filter: blur(var(--glass-blur-sm));
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm));
+  border: 1px solid var(--glass-border-subtle);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.glass-input:focus, .glass-input:focus-within {
+  border-color: rgba(234, 121, 87, 0.55);
+  box-shadow: 0 0 0 1px rgba(234, 121, 87, 0.25), inset 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.glass-bubble-ai {
+  background: var(--glass-bg-bubble-ai);
+  backdrop-filter: blur(var(--glass-blur-md));
+  -webkit-backdrop-filter: blur(var(--glass-blur-md));
+  border: 1px solid var(--glass-border-subtle);
+  box-shadow: var(--glass-shadow-sm), var(--glass-specular-top);
+}
+
+.glass-bubble-user {
+  background: var(--glass-bg-bubble-user);
+  backdrop-filter: blur(var(--glass-blur-sm));
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm));
+  border: 1px solid rgba(234, 121, 87, 0.22);
+  box-shadow: var(--glass-shadow-sm);
+}
+
+.glass-btn {
+  background: var(--glass-bg-button);
+  backdrop-filter: blur(var(--glass-blur-sm));
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm));
+  border: 1px solid var(--glass-border-subtle);
+  box-shadow: var(--glass-shadow-sm), var(--glass-specular-top);
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-btn:hover {
+  background: var(--glass-bg-button-hover);
+  border-color: var(--glass-border-highlight);
+  box-shadow: var(--glass-shadow-md), var(--glass-specular-coral);
+}
+
+.glass-pill {
+  background: rgba(43, 29, 22, 0.65);
+  backdrop-filter: blur(var(--glass-blur-sm));
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm));
+  border: 1px solid var(--glass-border-subtle);
+}
+
+/* Fallback for browsers not supporting backdrop-filter */
+@supports not (backdrop-filter: blur(10px)) {
+  .glass-panel,
+  .glass-card,
+  .glass-card-interactive,
+  .glass-sidebar,
+  .glass-modal,
+  .glass-dropdown,
+  .glass-input,
+  .glass-bubble-ai,
+  .glass-bubble-user,
+  .glass-btn,
+  .glass-pill {
+    background-color: #241913;
+  }
+}

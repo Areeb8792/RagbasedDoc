@@ -1,0 +1,212 @@
+/* TESSER — Morpheus AI Visual Fidelity Restoration Tokens & Scoped Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+  --color-charcoal: #0A0A0A;
+  --color-sand: #C6B19B;
+  --color-taupe: #645A4F;
+  --color-canvas: #FAFAF8;
+  --color-accent: #EE5937;
+  --color-neon: #00FF88;
+  --color-purple: #7C3AED;
+  --color-outer: #0F0F0F;
+
+  --grid-line: rgba(100, 90, 79, 0.12);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-outer);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--color-charcoal);
+  overflow-x: hidden;
+}
+
+.tesser-landing {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.tesser-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Outer Environment Background */
+.tesser-outer-bg {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-outer);
+  pointer-events: none;
+  z-index: 0;
+  background-image: linear-gradient(to bottom, rgba(0, 255, 136, 0.025) 1px, transparent 1px);
+  background-size: 100% 200px;
+}
+
+.tesser-outer-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Left Telemetry Panel */
+.telemetry-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 15vw;
+  min-width: 210px;
+  max-width: 260px;
+  height: 100vh;
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(12px);
+  border-right: 1px solid rgba(100, 90, 79, 0.2);
+  color: var(--color-canvas);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .telemetry-sidebar {
+    display: none !important;
+  }
+}
+
+/* Main Framed Canvas */
+.tesser-main-canvas {
+  position: relative;
+  z-index: 10;
+  margin-left: 15vw;
+  width: 85vw;
+  min-height: 100vh;
+  background-color: var(--color-canvas);
+  color: var(--color-charcoal);
+  border: 12px solid var(--color-charcoal);
+  border-top-left-radius: 24px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .tesser-main-canvas {
+    margin-left: 0 !important;
+    width: 100% !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+}
+
+/* Modular Grid Overlay */
+.tesser-grid-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  z-index: 1;
+}
+
+.tesser-grid-col {
+  border-right: 1px dotted var(--grid-line);
+  height: 100%;
+}
+
+.tesser-grid-col:last-child {
+  border-right: none;
+}
+
+/* Vertical Text */
+.writing-mode-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Glow divider pulse */
+@keyframes dividerPulse {
+  0%, 100% { opacity: 0.25; transform: scaleX(0.98); }
+  50% { opacity: 0.7; transform: scaleX(1); }
+}
+
+.tesser-glow-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 255, 136, 0.4) 50%, transparent 100%);
+  animation: dividerPulse 4s ease-in-out infinite;
+}
+
+/* Features */
+.tesser-feature-card {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-top: 1px solid rgba(100, 90, 79, 0.18);
+  padding-top: 2rem;
+}
+
+.tesser-feature-card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--color-neon);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tesser-feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.tesser-feature-card:hover::before {
+  width: 40%;
+}
+
+/* Tech Section */
+.tesser-tech-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1.5rem;
+  border-radius: 4px;
+}
+
+.tesser-tech-card:hover {
+  border-color: rgba(0, 255, 136, 0.4);
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+/* Primary CTA Button */
+.tesser-primary-cta {
+  background-color: var(--color-charcoal);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
+}
+
+.tesser-primary-cta:hover {
+  transform: translateY(-2px) scale(1.01);
+  border-color: rgba(0, 255, 136, 0.45);
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 255, 136, 0.15);
+}

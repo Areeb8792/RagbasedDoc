@@ -1,0 +1,234 @@
+/* Morpheus Tokens & Utilities */
+:root {
+  /* Main background */
+  --mor-bg: #FBF8F5;
+  --mor-bg-secondary: #F7F2ED;
+  --mor-surface: #FFFDFB;
+
+  /* Primary typography */
+  --mor-text: #241D19;
+  --mor-text-secondary: #6D5B50;
+  --mor-text-muted: #99877D;
+
+  /* Main accent */
+  --mor-coral: #EA7957;
+  --mor-coral-light: #F8E6DF;
+  --mor-coral-soft: #FCEEE8;
+
+  /* Secondary accents */
+  --mor-blue: #BFE2F1;
+  --mor-blue-soft: #E5F3F9;
+
+  --mor-sage: #BDD9B0;
+  --mor-sage-soft: #EAF1E5;
+  --mor-sage-dark: #2E5A36;
+
+  --mor-butter: #EEE6BF;
+
+  /* Primary actions */
+  --mor-button-dark: #35271F;
+  --mor-button-dark-hover: #49352A;
+
+  /* Borders */
+  --mor-border: #E7DAD1;
+  --mor-border-soft: rgba(70, 45, 35, 0.08);
+
+  /* Decorative elements */
+  --mor-grid: rgba(110, 91, 79, 0.09);
+
+  /* Shadows */
+  --mor-shadow: 0 10px 35px rgba(65, 43, 32, 0.06);
+}
+
+.mor-heading {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.035em;
+}
+
+.mor-body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.mor-mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Vertical Dotted Grid Lines Overlay */
+.mor-dotted-grid {
+  background-image: radial-gradient(circle, rgba(110, 91, 79, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.mor-vertical-lines {
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent,
+    transparent 119px,
+    rgba(110, 91, 79, 0.06) 120px
+  );
+}
+
+/* Subtle Curved Abstract Shapes for Background */
+.mor-shape-coral-top {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 55vw;
+  height: 60vh;
+  background: radial-gradient(circle at 60% 30%, rgba(248, 230, 223, 0.7) 0%, rgba(251, 248, 245, 0) 70%);
+  border-radius: 50% 40% 60% 30% / 40% 50% 30% 60%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mor-shape-sage-bottom {
+  position: absolute;
+  bottom: -5%;
+  left: -8%;
+  width: 50vw;
+  height: 45vh;
+  background: radial-gradient(circle at 30% 70%, rgba(234, 241, 229, 0.75) 0%, rgba(251, 248, 245, 0) 70%);
+  border-radius: 40% 60% 40% 50% / 50% 30% 60% 40%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Button & Pill Utilities */
+.mor-btn-primary {
+  background-color: var(--mor-button-dark);
+  color: #FFFFFF;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(53, 39, 31, 0.16);
+}
+
+.mor-btn-primary:hover {
+  background-color: var(--mor-button-dark-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(53, 39, 31, 0.22);
+}
+
+.mor-btn-secondary {
+  background-color: var(--mor-surface);
+  color: var(--mor-text);
+  border: 1px solid var(--mor-border);
+  border-radius: 12px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.mor-btn-secondary:hover {
+  background-color: var(--mor-bg-secondary);
+  border-color: #D4C3B7;
+  transform: translateY(-1px);
+}
+
+.mor-pill-sage {
+  background-color: var(--mor-sage-soft);
+  color: var(--mor-sage-dark);
+  border: 1px solid var(--mor-sage);
+}
+
+.mor-pill-peach {
+  background-color: var(--mor-coral-light);
+  color: #A85138;
+  border: 1px solid rgba(234, 121, 87, 0.25);
+}
+
+.mor-card {
+  background-color: var(--mor-surface);
+  border: 1px solid var(--mor-border);
+  border-radius: 16px;
+  box-shadow: var(--mor-shadow);
+}
+
+
+/* Verified Knowledge Flow Animations */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(-2deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(-3px) rotate(3deg);
+  }
+  50% {
+    transform: translateY(2px) rotate(4deg);
+  }
+}
+
+@keyframes verifyCardSequence {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 8px 24px rgba(46, 90, 54, 0.08);
+  }
+  40% {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(46, 90, 54, 0.16);
+  }
+  60% {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(46, 90, 54, 0.16);
+  }
+  80% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 8px 24px rgba(46, 90, 54, 0.08);
+  }
+}
+
+@keyframes pulseSageGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(189, 217, 176, 0);
+  }
+  45%, 65% {
+    box-shadow: 0 0 12px 3px rgba(189, 217, 176, 0.7);
+  }
+}
+
+@keyframes sparkleCoralFlash {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  45%, 65% {
+    opacity: 1;
+    transform: scale(1.25);
+    filter: drop-shadow(0 0 4px #EA7957);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 5.5s ease-in-out infinite;
+}
+
+.animate-verify-card {
+  animation: verifyCardSequence 6s ease-in-out infinite;
+}
+
+.animate-pulse-sage {
+  animation: pulseSageGlow 6s ease-in-out infinite;
+}
+
+.animate-sparkle-coral {
+  animation: sparkleCoralFlash 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-float-reverse,
+  .animate-verify-card,
+  .animate-pulse-sage,
+  .animate-sparkle-coral {
+    animation: none !important;
+  }
+}
